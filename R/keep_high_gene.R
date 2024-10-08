@@ -64,11 +64,11 @@ keepHighGene <- function(count_mat, top_high=5000,
                                  selection.method = "mvp", verbose = FALSE)
     
     # accommodate changes in Seurat v5 objects
-    if(as.integer(gsub("\\<(\\d+)\\.\\d+\\.\\d+", "\\1", S_vf@version))>=5){
-        high_variable_genes <- S_vf@assays$RNA@meta.data$vf_mvp_data_variable
-    }else{
+    #if(as.integer(gsub("\\<(\\d+)\\.\\d+\\.\\d+", "\\1", S_vf@version))>=5){
+    #    high_variable_genes <- S_vf@assays$RNA@meta.data$vf_mvp_data_variable
+    #}else{
         high_variable_genes <- S_vf@assays$RNA@meta.features$mvp.variable
-    }
+    #}
     
     gene_tokeep <- high_variable_genes | high_exp_genes
 
